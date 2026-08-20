@@ -73,6 +73,12 @@
   border-radius: var(--radius-sm);
 }
 
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .header__nav {
   display: flex;
   align-items: center;
