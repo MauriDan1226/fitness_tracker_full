@@ -10,8 +10,20 @@ export const formatDate = (value) =>
 export const formatShortDate = (value) =>
   new Date(value).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
 
-// Valor listo para un input de tipo date
-export const toInputDate = (value) => new Date(value).toISOString().slice(0, 10);
+// Valor listo para un input de tipo date, siempre en hora local
+export const toInputDate = (value) => {
+  const date = new Date(value);
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${date.getFullYear()}-${month}-${day}`;
+};
+
+// Un valor "AAAA-MM-DD" se interpreta como medianoche UTC, asi que se arma la fecha
+// a partir de sus partes para que no se desplace un dia segun la zona horaria
+export const fromInputDate = (value) => {
+  const [year, month, day] = value.split('-').map(Number);
+  return new Date(year, month - 1, day);
+};
 
 export const formatNumber = (value) => new Intl.NumberFormat('es-ES').format(Math.round(value));
 
