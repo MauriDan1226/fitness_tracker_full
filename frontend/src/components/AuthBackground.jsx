@@ -1,11 +1,18 @@
 import { AUTH_BACKGROUND } from '../config/branding';
 
-// Fotografia ambiental detras del formulario, decorativa: no lleva texto alternativo
-function AuthBackground() {
+/*
+ * Panel lateral de las pantallas de acceso. La fotografia es decorativa,
+ * asi que va sin texto alternativo y oculta a los lectores de pantalla.
+ */
+function AuthBackground({ title, text }) {
   return (
-    <div className="auth__background" aria-hidden="true">
-      <img src={AUTH_BACKGROUND.src} alt="" loading="eager" decoding="async" />
-    </div>
+    <aside className="auth__aside" aria-hidden="true">
+      <img className="auth__aside-image" src={AUTH_BACKGROUND.src} alt="" decoding="async" />
+      <div className="auth__aside-body">
+        <p className="eyebrow">{title}</p>
+        <p className="auth__aside-text">{text}</p>
+      </div>
+    </aside>
   );
 }
 

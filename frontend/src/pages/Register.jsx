@@ -33,7 +33,6 @@ function Register() {
 
   return (
     <section className="auth">
-      <AuthBackground />
       <div className="auth__container">
         <h1 className="auth__title">Crea tu cuenta</h1>
         <p className="auth__subtitle">Empieza a registrar tus entrenamientos hoy mismo.</p>
@@ -111,6 +110,8 @@ function Register() {
           </Link>
         </p>
       </div>
+
+      <AuthBackground title="Empieza por el principio" text="Una cuenta, tus datos y el primer entrenamiento. El resto lo calcula la aplicacion." />
     </section>
   );
 }

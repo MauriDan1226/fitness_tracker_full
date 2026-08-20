@@ -59,10 +59,10 @@ function ActivityChart({ data }) {
         </div>
         <div className="chart-card__body">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data} margin={{ top: 4, right: 4, left: -22, bottom: 0 }}>
+            <BarChart data={data} margin={{ top: 4, right: 6, left: 0, bottom: 0 }}>
               <CartesianGrid stroke={GRID} vertical={false} />
               <XAxis dataKey="label" {...axisProps} />
-              <YAxis {...axisProps} width={46} />
+              <YAxis {...axisProps} width={38} />
               <Tooltip
                 content={<ChartTooltip unit="min" />}
                 cursor={{ fill: 'rgba(255,255,255,0.035)' }}
@@ -73,6 +73,7 @@ function ActivityChart({ data }) {
                 fill={MINUTES}
                 radius={[4, 4, 0, 0]}
                 maxBarSize={26}
+                isAnimationActive={false}
               />
             </BarChart>
           </ResponsiveContainer>
@@ -86,7 +87,7 @@ function ActivityChart({ data }) {
         </div>
         <div className="chart-card__body">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data} margin={{ top: 4, right: 4, left: -22, bottom: 0 }}>
+            <AreaChart data={data} margin={{ top: 4, right: 6, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="caloriesFill" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor={CALORIES} stopOpacity={0.26} />
@@ -95,7 +96,7 @@ function ActivityChart({ data }) {
               </defs>
               <CartesianGrid stroke={GRID} vertical={false} />
               <XAxis dataKey="label" {...axisProps} />
-              <YAxis {...axisProps} width={46} />
+              <YAxis {...axisProps} width={38} />
               <Tooltip
                 content={<ChartTooltip unit="kcal" />}
                 cursor={{ stroke: AXIS, strokeDasharray: '3 3' }}

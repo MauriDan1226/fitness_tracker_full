@@ -74,6 +74,11 @@
   font-size: 0.8125rem;
 }
 
+.button_large {
+  padding: 13px 24px;
+  font-size: var(--step-0);
+}
+
 .button_block {
   width: 100%;
 }

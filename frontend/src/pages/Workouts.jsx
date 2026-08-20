@@ -8,6 +8,8 @@ import Modal from '../components/Modal';
 import ConfirmDialog from '../components/ConfirmDialog';
 import Loader from '../components/Loader';
 import Icon from '../components/Icon';
+import BrandImage from '../components/BrandImage';
+import { EMPTY_LOG_IMAGE } from '../config/branding';
 import Message from '../components/Message';
 
 function Workouts() {
@@ -131,16 +133,32 @@ function Workouts() {
       {isLoading ? (
         <Loader text="Cargando tus entrenamientos..." />
       ) : visibleWorkouts.length === 0 ? (
-        <div className="empty-state">
-          <span className="empty-state__icon"><Icon name="running" size={28} /></span>
-          <p className="empty-state__text">
-            {workouts.length === 0
-              ? 'Todavia no has registrado ningun entrenamiento. Anota el primero y empieza a ver tu progreso.'
-              : `No hay sesiones de ${findWorkoutType(filter).label} registradas.`}
-          </p>
-          <button className="button button_primary" type="button" onClick={openCreateForm}>
-            Registrar entrenamiento
-          </button>
+        <div className={workouts.length === 0 ? 'empty-hero' : 'empty-state'}>
+          {workouts.length === 0 ? (
+            <>
+              <BrandImage image={EMPTY_LOG_IMAGE} className="empty-hero__image" ratio="3 / 2" />
+              <div className="empty-hero__body">
+                <h2 className="empty-hero__title">Tu cuaderno esta en blanco</h2>
+                <p className="empty-hero__text">
+                  Anota la primera sesion y la aplicacion empezara a calcular tus totales, tu
+                  progreso y tus metas.
+                </p>
+                <button className="button button_primary" type="button" onClick={openCreateForm}>
+                  <Icon name="plus" size={16} />
+                  Registrar entrenamiento
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <span className="empty-state__icon">
+                <Icon name={findWorkoutType(filter).icon} size={28} />
+              </span>
+              <p className="empty-state__text">
+                No hay sesiones de {findWorkoutType(filter).label} registradas.
+              </p>
+            </>
+          )}
         </div>
       ) : (
         <div className="workout-list">

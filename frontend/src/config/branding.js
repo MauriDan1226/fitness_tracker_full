@@ -18,17 +18,35 @@ export const LOGO = {
   alt: 'Simbolo de la aplicacion: barras de progreso ascendentes con una linea de pulso',
 };
 
-// Portada de la landing. La version vertical se usa en pantallas estrechas
+// Portada de la landing: panoramica en escritorio, vertical en pantallas estrechas
 export const HERO = {
-  src: '/images/hero.jpg',
+  src: '/images/hero-wide.jpg',
   mobileSrc: '/images/hero-portrait.jpg',
   alt: 'Mujer descansando entre series en un gimnasio en penumbra',
 };
 
-// Fondo de las pantallas de registro e inicio de sesion
+// Banda a sangre que cierra la landing
+export const CLOSING_IMAGE = {
+  src: '/images/closing.jpg',
+  alt: 'Corredor esprintando a contraluz en una pista al atardecer',
+};
+
+// Cabecera de la seccion de consejos
+export const TIPS_IMAGE = {
+  src: '/images/tips.jpg',
+  alt: 'Deportista recuperando el aliento apoyado en una pared',
+};
+
+// Ilustra la lista de entrenamientos cuando aun no hay ninguno
+export const EMPTY_LOG_IMAGE = {
+  src: '/images/empty-log.jpg',
+  alt: 'Cuaderno abierto y reloj deportivo sobre un banco de madera',
+};
+
+// Panel lateral de las pantallas de registro e inicio de sesion
 export const AUTH_BACKGROUND = {
-  src: '/images/auth-background.jpg',
-  alt: 'Gimnasio vacio al amanecer',
+  src: '/images/auth-aside.jpg',
+  alt: 'Deportista recuperando el aliento tras entrenar',
 };
 
 // Imagenes de las tres secciones de la landing

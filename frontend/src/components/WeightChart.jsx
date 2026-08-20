@@ -34,7 +34,7 @@ function WeightChart({ data }) {
       ) : (
         <div className="chart-card__body chart-card__body_tall">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data} margin={{ top: 8, right: 10, left: -22, bottom: 0 }}>
+            <LineChart data={data} margin={{ top: 8, right: 10, left: 0, bottom: 0 }}>
               <CartesianGrid stroke={GRID} vertical={false} />
               <XAxis dataKey="label" stroke={AXIS} fontSize={11} tickLine={false} axisLine={false} />
               <YAxis
@@ -42,7 +42,7 @@ function WeightChart({ data }) {
                 fontSize={11}
                 tickLine={false}
                 axisLine={false}
-                width={46}
+                width={38}
                 domain={['dataMin - 1.5', 'dataMax + 1.5']}
               />
               <Tooltip

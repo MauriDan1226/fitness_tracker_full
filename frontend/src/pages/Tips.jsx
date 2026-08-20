@@ -1,4 +1,6 @@
 import { useData } from '../contexts/DataContext';
+import { TIPS_IMAGE } from '../config/branding';
+import BrandImage from '../components/BrandImage';
 import TipCard from '../components/TipCard';
 import Loader from '../components/Loader';
 import Icon from '../components/Icon';
@@ -10,12 +12,18 @@ function Tips() {
 
   return (
     <section>
-      <div className="section-head">
-        <h1 className="section-head__title">Consejos para ti</h1>
-        <p className="section-head__subtitle">
-          Recomendaciones elegidas segun tu perfil y tu actividad de esta semana.
-        </p>
-      </div>
+      <header className="page-hero">
+        <div className="page-hero__media">
+          <BrandImage image={TIPS_IMAGE} fill loading="eager" />
+        </div>
+        <div className="page-hero__body">
+          <p className="eyebrow">Salud y habitos</p>
+          <h1 className="page-hero__title">Consejos para ti</h1>
+          <p className="page-hero__text">
+            Elegidos segun tu perfil y tu actividad de esta semana.
+          </p>
+        </div>
+      </header>
 
       <Message text={loadError} />
 

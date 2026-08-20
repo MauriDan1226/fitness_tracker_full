@@ -29,7 +29,6 @@ function Login() {
 
   return (
     <section className="auth">
-      <AuthBackground />
       <div className="auth__container">
         <h1 className="auth__title">Hola de nuevo</h1>
         <p className="auth__subtitle">Entra para seguir con tu plan de entrenamiento.</p>
@@ -87,6 +86,8 @@ function Login() {
           </Link>
         </p>
       </div>
+
+      <AuthBackground title="Tu cuaderno te espera" text="Cada sesion que anotas afina las estadisticas y el avance de tus metas." />
     </section>
   );
 }
