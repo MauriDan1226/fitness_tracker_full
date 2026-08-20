@@ -100,6 +100,22 @@
   object-fit: cover;
 }
 
+/* <picture> con version vertical para moviles */
+.brand-image__picture {
+  display: block;
+  width: 100%;
+}
+
+.brand-image_responsive {
+  aspect-ratio: var(--ratio-desktop, 16 / 9);
+}
+
+@media (max-width: 700px) {
+  .brand-image_responsive {
+    aspect-ratio: var(--ratio-mobile, var(--ratio-desktop, 16 / 9));
+  }
+}
+
 .brand-image_placeholder {
   display: flex;
   align-items: center;

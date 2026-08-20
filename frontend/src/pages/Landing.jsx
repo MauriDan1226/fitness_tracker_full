@@ -29,7 +29,6 @@ function Landing() {
           <h1 className="landing__title">
             Tu progreso, <span className="landing__title-accent">medido de verdad</span>
           </h1>
-          {/* TODO: el nombre y el lema salen de branding.js */}
           <p className="landing__tagline">
             {APP_NAME} es tu cuaderno de entrenamiento digital. {APP_TAGLINE}
           </p>
@@ -56,14 +55,12 @@ function Landing() {
             </li>
           </ul>
         </div>
-        {/* TODO: sustituir la imagen de portada en branding.js */}
-        <BrandImage image={HERO} ratio="4 / 3" />
+        <BrandImage image={HERO} ratio="4 / 3" mobileRatio="3 / 4" loading="eager" />
       </section>
 
       <section className="landing__features">
         {FEATURES.map((feature) => (
           <article key={feature.title} className="card card_interactive">
-            {/* TODO: sustituir las imagenes de seccion en branding.js */}
             <BrandImage image={feature.image} className="landing__feature-image" ratio="3 / 2" />
             <h2 className="landing__feature-title">{feature.title}</h2>
             <p className="landing__feature-text">{feature.text}</p>

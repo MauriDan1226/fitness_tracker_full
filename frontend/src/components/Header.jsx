@@ -32,7 +32,6 @@ function Header() {
     <header className="header">
       <div className="header__container">
         <Link to={isLoggedIn ? '/dashboard' : '/'} className="header__logo">
-          {/* TODO: al asignar el logo en branding.js esta imagen deja de ser un marcador */}
           <BrandImage image={LOGO} className="header__logo-image" ratio="1 / 1" />
           <span>{APP_NAME}</span>
         </Link>

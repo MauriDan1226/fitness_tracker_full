@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useForm } from '../utils/useForm';
 import Message from '../components/Message';
+import AuthBackground from '../components/AuthBackground';
 
 function Register() {
   const { register } = useAuth();
@@ -32,6 +33,7 @@ function Register() {
 
   return (
     <section className="auth">
+      <AuthBackground />
       <div className="auth__container">
         <h1 className="auth__title">Crea tu cuenta</h1>
         <p className="auth__subtitle">Empieza a registrar tus entrenamientos hoy mismo.</p>

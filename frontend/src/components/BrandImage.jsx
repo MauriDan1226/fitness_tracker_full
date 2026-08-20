@@ -1,9 +1,11 @@
 /*
  * Muestra una imagen de marca. Si todavia no hay archivo asignado en branding.js
  * pinta un marcador gris con el texto alternativo, para que se vea que falta el asset.
+ * Cuando la imagen trae una version vertical (`mobileSrc`) el navegador elige
+ * la mas adecuada segun el ancho de la pantalla.
  */
-function BrandImage({ image, className = '', ratio = '16 / 9' }) {
-  const { src, alt } = image;
+function BrandImage({ image, className = '', ratio = '16 / 9', mobileRatio, loading = 'lazy' }) {
+  const { src, mobileSrc, alt } = image;
 
   if (!src) {
     return (
@@ -18,13 +20,33 @@ function BrandImage({ image, className = '', ratio = '16 / 9' }) {
     );
   }
 
-  return (
+  const picture = (
     <img
       className={`brand-image ${className}`.trim()}
-      style={{ aspectRatio: ratio }}
+      style={{ aspectRatio: mobileSrc ? undefined : ratio }}
       src={src}
       alt={alt}
+      loading={loading}
+      decoding="async"
     />
+  );
+
+  if (!mobileSrc) return picture;
+
+  return (
+    <picture
+      className={`brand-image__picture ${className}`.trim()}
+      style={{ '--ratio-desktop': ratio, '--ratio-mobile': mobileRatio || ratio }}
+    >
+      <source media="(max-width: 700px)" srcSet={mobileSrc} />
+      <img
+        className="brand-image brand-image_responsive"
+        src={src}
+        alt={alt}
+        loading={loading}
+        decoding="async"
+      />
+    </picture>
   );
 }
 

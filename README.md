@@ -158,18 +158,33 @@ Los errores se devuelven con el código correspondiente (`400`, `401`, `403`, `4
 ## Personalización de la marca
 
 Los textos e imágenes de marca están centralizados en
-[`frontend/src/config/branding.js`](frontend/src/config/branding.js) y marcados con `TODO`:
+[`frontend/src/config/branding.js`](frontend/src/config/branding.js).
 
-| Constante | Uso |
-| --- | --- |
-| `APP_NAME` | Nombre de la aplicación (`[TÍTULO_APP]`) |
-| `APP_TAGLINE` | Lema de la portada |
-| `LOGO` | Logotipo de la cabecera (`[LOGO_IMG]`) |
-| `HERO` | Imagen principal de la portada (`[HERO_IMG]`) |
-| `SECTION_IMAGES` | Imágenes de las tres secciones (`[IMG_1]`, `[IMG_2]`, `[IMG_3]`) |
+| Constante | Estado | Uso |
+| --- | --- | --- |
+| `APP_NAME` | **pendiente** (`[TÍTULO_APP]`) | Nombre de la aplicación |
+| `APP_TAGLINE` | pendiente | Lema de la portada |
+| `LOGO` | listo | Símbolo vectorial de la cabecera y del favicon |
+| `HERO` | listo | Portada de la landing, con versión vertical para móvil |
+| `AUTH_BACKGROUND` | listo | Fondo de registro e inicio de sesión |
+| `SECTION_IMAGES` | listo | Imágenes de las tres secciones de la landing |
 
-Mientras el campo `src` de una imagen sea `null`, la aplicación pinta un marcador gris con
-el texto alternativo. Para usar los archivos definitivos basta con dejarlos en
-`frontend/public/images/` y apuntar cada `src` a su ruta, por ejemplo `/images/logo.svg`.
-El título de la pestaña, en `frontend/index.html`, y el favicon en
-`frontend/public/favicon.svg` también están marcados para reemplazar.
+Las imágenes viven en `frontend/public/images/`:
+
+| Archivo | Formato | Uso |
+| --- | --- | --- |
+| `logo.svg` | SVG | Marca; escala sin pérdida y usa el color de acento |
+| `hero.jpg` | 2304 × 1728 | Portada en escritorio |
+| `hero-portrait.jpg` | 1728 × 2304 | Portada en pantallas de menos de 700 px |
+| `auth-background.jpg` | 2560 × 1440 | Fondo de las pantallas de acceso |
+| `feature-log.jpg` | 2496 × 1664 | Sección "Registra cada entrenamiento" |
+| `feature-goals.jpg` | 2496 × 1664 | Sección "Ponte metas reales" |
+| `feature-progress.jpg` | 2496 × 1664 | Sección "Mide tu evolución" |
+
+El componente `BrandImage` sirve la versión vertical mediante `<picture>` cuando la imagen
+define `mobileSrc`, y sigue pintando un marcador gris con el texto alternativo si algún
+`src` vuelve a quedar en `null`. Para sustituir cualquier imagen basta con dejar el archivo
+nuevo en `frontend/public/images/` y apuntar su `src` en `branding.js`.
+
+El título de la pestaña, en `frontend/index.html`, sigue marcado con `TODO` a la espera del
+nombre definitivo.

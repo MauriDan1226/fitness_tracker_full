@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useForm } from '../utils/useForm';
 import Message from '../components/Message';
+import AuthBackground from '../components/AuthBackground';
 
 function Login() {
   const { login } = useAuth();
@@ -28,6 +29,7 @@ function Login() {
 
   return (
     <section className="auth">
+      <AuthBackground />
       <div className="auth__container">
         <h1 className="auth__title">Hola de nuevo</h1>
         <p className="auth__subtitle">Entra para seguir con tu plan de entrenamiento.</p>

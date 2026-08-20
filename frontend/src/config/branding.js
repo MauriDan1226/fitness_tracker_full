@@ -1,9 +1,9 @@
 /*
  * Datos de marca de la aplicacion.
  *
- * TODO: reemplazar todos los valores de este archivo por los definitivos.
- * Mientras `src` sea null, el componente BrandImage pinta un marcador gris
- * con el texto alternativo en lugar de una imagen.
+ * TODO: reemplazar APP_NAME y APP_TAGLINE por los definitivos.
+ * Las imagenes viven en `frontend/public/images`. Si un `src` vuelve a ser null,
+ * el componente BrandImage pinta un marcador gris con el texto alternativo.
  */
 
 // TODO: reemplazar por el nombre real de la aplicacion
@@ -12,30 +12,37 @@ export const APP_NAME = '[TÍTULO_APP]';
 // TODO: reemplazar por el lema real de la aplicacion
 export const APP_TAGLINE = 'Registra cada sesion, mide tu progreso y cumple tus metas.';
 
-// TODO: reemplazar `src` por la ruta del logo (por ejemplo '/images/logo.svg')
+// Marca vectorial: se ve nitida en cualquier tamano, del favicon a la cabecera
 export const LOGO = {
-  src: null,
-  alt: '[LOGO_IMG]',
+  src: '/images/logo.svg',
+  alt: 'Simbolo de la aplicacion: barras de progreso ascendentes con una linea de pulso',
 };
 
-// TODO: reemplazar `src` por la imagen de portada de la landing
+// Portada de la landing. La version vertical se usa en pantallas estrechas
 export const HERO = {
-  src: null,
-  alt: '[HERO_IMG]',
+  src: '/images/hero.jpg',
+  mobileSrc: '/images/hero-portrait.jpg',
+  alt: 'Mujer descansando entre series en un gimnasio en penumbra',
 };
 
-// TODO: reemplazar `src` por las imagenes de las secciones de la landing
+// Fondo de las pantallas de registro e inicio de sesion
+export const AUTH_BACKGROUND = {
+  src: '/images/auth-background.jpg',
+  alt: 'Gimnasio vacio al amanecer',
+};
+
+// Imagenes de las tres secciones de la landing
 export const SECTION_IMAGES = {
   first: {
-    src: null,
-    alt: '[IMG_1]',
+    src: '/images/feature-log.jpg',
+    alt: 'Manos anotando el entrenamiento en una libreta sobre un banco de gimnasio',
   },
   second: {
-    src: null,
-    alt: '[IMG_2]',
+    src: '/images/feature-goals.jpg',
+    alt: 'Corredor atandose las zapatillas en una calle mojada al amanecer',
   },
   third: {
-    src: null,
-    alt: '[IMG_3]',
+    src: '/images/feature-progress.jpg',
+    alt: 'Deportista consultando los datos de su reloj despues de entrenar',
   },
 };
