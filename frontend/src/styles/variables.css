@@ -1,0 +1,38 @@
+:root {
+  /* Fondos */
+  --color-bg: #0d0f12;
+  --color-surface: #14171c;
+  --color-surface-2: #1b1f26;
+  --color-border: #262c35;
+
+  /* Texto */
+  --color-text: #f3f5f8;
+  --color-text-muted: #99a1ad;
+  --color-text-dim: #6b7280;
+
+  /* Acentos */
+  --color-accent: #d6fd51;
+  --color-accent-dark: #b7e232;
+  --color-accent-contrast: #10130f;
+  --color-energy: #ff6b35;
+  --color-water: #38bdf8;
+  --color-danger: #f4586a;
+  --color-success: #4ade80;
+
+  /* Tipografia */
+  --font-main: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Espaciado y formas */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+  --shadow-accent: 0 8px 26px rgba(214, 253, 81, 0.22);
+
+  --transition: 0.2s ease;
+  --max-width: 1120px;
+  --header-height: 68px;
+}
