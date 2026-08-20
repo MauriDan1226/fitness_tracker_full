@@ -30,7 +30,7 @@ function GoalCard({ goal, onEdit, onDelete }) {
         <span className="goal-card__deadline">
           {goal.deadline ? `Hasta el ${formatDate(goal.deadline)}` : 'Sin fecha limite'}
         </span>
-        <span className="workout-card__actions">
+        <span className="card-actions">
           <button
             className="icon-button"
             type="button"

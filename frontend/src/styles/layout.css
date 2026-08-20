@@ -6,6 +6,7 @@
 
 .page__content {
   flex-grow: 1;
+  animation: fade-in 0.3s ease;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -149,6 +150,12 @@
   margin: 0 auto;
   color: var(--color-text-dim);
   font-size: 14px;
+}
+
+@media (min-width: 900px) {
+  .page__content {
+    padding: 34px 24px 80px;
+  }
 }
 
 @media (max-width: 720px) {

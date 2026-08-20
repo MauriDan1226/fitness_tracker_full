@@ -41,6 +41,7 @@ function ActivityChart({ data }) {
               <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(255,255,255,0.04)' }} />
               <Legend wrapperStyle={{ fontSize: 13, color: AXIS_COLOR }} />
               <Bar dataKey="minutes" name="Minutos" fill={BAR_COLOR} radius={[6, 6, 0, 0]} />
+              {/* sin animacion: recharts no dibuja los puntos hasta terminarla */}
               <Line
                 type="monotone"
                 dataKey="calories"
@@ -48,6 +49,8 @@ function ActivityChart({ data }) {
                 stroke={LINE_COLOR}
                 strokeWidth={2.5}
                 dot={{ r: 3, fill: LINE_COLOR }}
+                activeDot={{ r: 5 }}
+                isAnimationActive={false}
               />
             </ComposedChart>
           </ResponsiveContainer>

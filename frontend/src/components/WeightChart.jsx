@@ -40,6 +40,7 @@ function WeightChart({ data }) {
                 domain={['dataMin - 2', 'dataMax + 2']}
               />
               <Tooltip content={<ChartTooltip unit="kg" />} cursor={{ stroke: GRID_COLOR }} />
+              {/* sin animacion: recharts no dibuja los puntos hasta terminarla */}
               <Line
                 type="monotone"
                 dataKey="weight"
@@ -48,6 +49,7 @@ function WeightChart({ data }) {
                 strokeWidth={2.5}
                 dot={{ r: 3, fill: LINE_COLOR }}
                 activeDot={{ r: 5 }}
+                isAnimationActive={false}
               />
             </LineChart>
           </ResponsiveContainer>

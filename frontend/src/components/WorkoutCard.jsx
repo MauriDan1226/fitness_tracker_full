@@ -23,7 +23,7 @@ function WorkoutCard({ workout, onEdit, onDelete }) {
       </div>
 
       {onEdit && onDelete && (
-        <div className="workout-card__actions">
+        <div className="card-actions">
           <button
             className="icon-button"
             type="button"
