@@ -6,44 +6,52 @@
 
 .page__content {
   flex-grow: 1;
-  animation: fade-in 0.3s ease;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 24px 16px 64px;
+  padding: 28px 20px 72px;
+}
+
+/* la portada manda a sangre: sin caja ni margenes */
+.page__content_flush {
+  max-width: none;
+  padding: 0;
 }
 
 .section-head {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 22px;
+  gap: 4px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .section-head__row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 14px;
 }
 
 .section-head__title {
-  font-size: 26px;
+  font-size: var(--step-3);
+  text-transform: uppercase;
 }
 
 .section-head__subtitle {
   color: var(--color-text-muted);
-  font-size: 15px;
+  font-size: var(--step--1);
 }
 
-/* --- Encabezado --- */
+/* --- Cabecera --- */
 .header {
   position: sticky;
   top: 0;
   z-index: 20;
-  background-color: rgba(13, 15, 18, 0.88);
-  backdrop-filter: blur(12px);
+  background-color: rgba(11, 11, 10, 0.85);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -56,52 +64,68 @@
   max-width: var(--max-width);
   min-height: var(--header-height);
   margin: 0 auto;
-  padding: 10px 16px;
+  padding: 8px 20px;
 }
 
 .header__logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  gap: 9px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .header__logo-image {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-sm);
+  width: 26px;
+  height: 26px;
 }
 
 .header__menu {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .header__nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
+/* el enlace activo se marca con una regla inferior, no con una pastilla de color */
 .header__link {
+  position: relative;
   padding: 8px 12px;
-  border-radius: var(--radius-pill);
   color: var(--color-text-muted);
-  font-size: 15px;
-  transition: color var(--transition), background-color var(--transition);
+  font-size: var(--step--1);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 0;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color var(--transition);
 }
 
 .header__link:hover {
   color: var(--color-text);
-  background-color: var(--color-surface-2);
 }
 
 .header__link_active {
-  color: var(--color-accent);
-  background-color: rgba(214, 253, 81, 0.12);
+  color: var(--color-text);
+}
+
+.header__link_active::after {
+  background-color: var(--color-accent);
 }
 
 .header__user {
@@ -111,33 +135,31 @@
 }
 
 .header__username {
-  color: var(--color-text-muted);
-  font-size: 15px;
+  color: var(--color-text-dim);
+  font-size: var(--step--1);
 }
 
 .header__toggle {
   display: none;
   padding: 8px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
-  background-color: var(--color-surface);
+  background-color: transparent;
   color: var(--color-text);
 }
 
 .header__toggle-bar {
   display: block;
-  width: 20px;
-  height: 2px;
+  width: 18px;
+  height: 1.5px;
   margin: 4px 0;
   background-color: currentColor;
-  border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
 }
 
 /* --- Pie --- */
 .footer {
   border-top: 1px solid var(--color-border);
-  padding: 26px 16px;
+  padding: 24px 20px;
 }
 
 .footer__container {
@@ -149,16 +171,20 @@
   max-width: var(--max-width);
   margin: 0 auto;
   color: var(--color-text-dim);
-  font-size: 14px;
+  font-size: 0.8125rem;
 }
 
 @media (min-width: 900px) {
   .page__content {
-    padding: 34px 24px 80px;
+    padding: 36px 24px 88px;
+  }
+
+  .page__content_flush {
+    padding: 0;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 760px) {
   .header__toggle {
     display: block;
   }
@@ -171,11 +197,10 @@
     display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 4px;
-    padding: 12px 16px 18px;
-    background-color: var(--color-surface);
+    gap: 0;
+    padding: 8px 20px 16px;
+    background-color: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
   }
 
   .header__menu_open {
@@ -188,14 +213,24 @@
   }
 
   .header__link {
-    border-radius: var(--radius-sm);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--step-0);
+  }
+
+  .header__link::after {
+    left: 0;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: auto;
   }
 
   .header__user {
     flex-direction: column;
     align-items: stretch;
-    padding-top: 12px;
-    border-top: 1px solid var(--color-border);
+    padding-top: 14px;
   }
 
   .header__username {

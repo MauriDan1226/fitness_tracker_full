@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Icon from './Icon';
 
 function Modal({ title, isOpen, onClose, children }) {
   // se cierra con la tecla escape
@@ -25,7 +26,7 @@ function Modal({ title, isOpen, onClose, children }) {
         aria-label={title}
       >
         <button className="modal__close" type="button" onClick={onClose} aria-label="Cerrar">
-          ✕
+          <Icon name="close" size={16} />
         </button>
         <h2 className="modal__title">{title}</h2>
         {children}

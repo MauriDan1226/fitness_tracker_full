@@ -7,6 +7,7 @@ import WorkoutForm from '../components/WorkoutForm';
 import Modal from '../components/Modal';
 import ConfirmDialog from '../components/ConfirmDialog';
 import Loader from '../components/Loader';
+import Icon from '../components/Icon';
 import Message from '../components/Message';
 
 function Workouts() {
@@ -96,7 +97,8 @@ function Workouts() {
             </p>
           </div>
           <button className="button button_primary" type="button" onClick={openCreateForm}>
-            + Registrar entrenamiento
+            <Icon name="plus" size={16} />
+            Registrar entrenamiento
           </button>
         </div>
       </div>
@@ -119,7 +121,8 @@ function Workouts() {
               type="button"
               onClick={() => setFilter(type.value)}
             >
-              {type.icon} {type.label}
+              <Icon name={type.icon} size={15} />
+              {type.label}
             </button>
           ))}
         </div>
@@ -129,7 +132,7 @@ function Workouts() {
         <Loader text="Cargando tus entrenamientos..." />
       ) : visibleWorkouts.length === 0 ? (
         <div className="empty-state">
-          <span className="empty-state__icon">🏃</span>
+          <span className="empty-state__icon"><Icon name="running" size={28} /></span>
           <p className="empty-state__text">
             {workouts.length === 0
               ? 'Todavia no has registrado ningun entrenamiento. Anota el primero y empieza a ver tu progreso.'

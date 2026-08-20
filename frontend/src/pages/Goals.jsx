@@ -5,6 +5,7 @@ import GoalForm from '../components/GoalForm';
 import Modal from '../components/Modal';
 import ConfirmDialog from '../components/ConfirmDialog';
 import Loader from '../components/Loader';
+import Icon from '../components/Icon';
 import Message from '../components/Message';
 
 function Goals() {
@@ -71,7 +72,8 @@ function Goals() {
             </p>
           </div>
           <button className="button button_primary" type="button" onClick={openCreateForm}>
-            + Nueva meta
+            <Icon name="plus" size={16} />
+            Nueva meta
           </button>
         </div>
       </div>
@@ -82,7 +84,7 @@ function Goals() {
         <Loader text="Cargando tus metas..." />
       ) : goals.length === 0 ? (
         <div className="empty-state">
-          <span className="empty-state__icon">🎯</span>
+          <span className="empty-state__icon"><Icon name="target" size={28} /></span>
           <p className="empty-state__text">
             Todavia no tienes metas. Define un objetivo de peso, de minutos o de calorias y la
             aplicacion calculara tu avance automaticamente.

@@ -11,6 +11,7 @@ import WorkoutCard from '../components/WorkoutCard';
 import ProgressBar from '../components/ProgressBar';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Icon from '../components/Icon';
 
 function Dashboard() {
   const { currentUser } = useAuth();
@@ -34,7 +35,7 @@ function Dashboard() {
   return (
     <section className="dashboard">
       <div className="dashboard__greeting">
-        <h1 className="section-head__title">Hola, {currentUser.name}</h1>
+        <h1 className="dashboard__title">Hola, {currentUser.name}</h1>
         <p className="section-head__subtitle">
           {weekTotals.count > 0
             ? `Llevas ${weekTotals.count} sesiones esta semana. Sigue asi.`
@@ -77,7 +78,7 @@ function Dashboard() {
 
       <div className="dashboard__panels">
         <div className="card">
-          <div className="section-head__row">
+          <div className="dashboard__panel-head">
             <h2 className="dashboard__panel-title">Ultimos entrenamientos</h2>
             <Link to="/workouts" className="button button_ghost button_small">
               Ver todos
@@ -86,7 +87,7 @@ function Dashboard() {
 
           {recentWorkouts.length === 0 ? (
             <div className="empty-state">
-              <span className="empty-state__icon">🏃</span>
+              <span className="empty-state__icon"><Icon name="running" size={28} /></span>
               <p className="empty-state__text">
                 Aun no hay sesiones registradas. Anota la primera para empezar tu historial.
               </p>
@@ -104,7 +105,7 @@ function Dashboard() {
         </div>
 
         <div className="card">
-          <div className="section-head__row">
+          <div className="dashboard__panel-head">
             <h2 className="dashboard__panel-title">Metas en curso</h2>
             <Link to="/goals" className="button button_ghost button_small">
               Ver todas
@@ -113,19 +114,21 @@ function Dashboard() {
 
           {activeGoals.length === 0 ? (
             <div className="empty-state">
-              <span className="empty-state__icon">🎯</span>
+              <span className="empty-state__icon"><Icon name="target" size={28} /></span>
               <p className="empty-state__text">Define una meta y sigue tu avance desde aqui.</p>
               <Link to="/goals" className="button button_primary">
                 Crear meta
               </Link>
             </div>
           ) : (
-            <ul className="workout-list">
+            <ul className="dashboard__goal-list">
               {activeGoals.map((goal) => (
-                <li key={goal._id} className="goal-card">
-                  <div className="goal-card__values">
+                <li key={goal._id} className="dashboard__goal">
+                  <div className="dashboard__goal-row">
                     <span>{goal.title}</span>
-                    <span className="goal-card__percent">{Math.round(goal.progress.percent)}%</span>
+                    <span className="dashboard__goal-percent tabular">
+                      {Math.round(goal.progress.percent)}%
+                    </span>
                   </div>
                   <ProgressBar percent={goal.progress.percent} />
                 </li>
@@ -134,23 +137,20 @@ function Dashboard() {
           )}
 
           {streak > 0 && (
-            <p className="stat-card__hint" style={{ marginTop: 16 }}>
-              🔥 Racha actual: {streak} {streak === 1 ? 'dia' : 'dias'} seguidos
+            <p className="dashboard__streak">
+              <Icon name="flame" size={15} />
+              Racha actual: {streak} {streak === 1 ? 'dia' : 'dias'} seguidos
             </p>
           )}
         </div>
       </div>
 
       {featuredTip && (
-        <article className="tips__featured" style={{ marginTop: 26 }}>
+        <article className="tips__featured dashboard__tip">
           <span className="badge badge_accent">Consejo del dia</span>
           <h2 className="tips__featured-title">{featuredTip.title}</h2>
           <p className="tips__featured-text">{featuredTip.text}</p>
-          <Link
-            to="/tips"
-            className="button button_secondary button_small"
-            style={{ marginTop: 16 }}
-          >
+          <Link to="/tips" className="button button_secondary button_small">
             Ver mas consejos
           </Link>
         </article>

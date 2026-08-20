@@ -73,7 +73,7 @@ function WorkoutForm({ workout, onSubmit, onCancel, isSaving, error }) {
         >
           {WORKOUT_TYPES.map((type) => (
             <option key={type.value} value={type.value}>
-              {type.icon} {type.label}
+              {type.label}
             </option>
           ))}
         </select>

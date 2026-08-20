@@ -17,22 +17,25 @@
 }
 
 .form__label {
-  color: var(--color-text-muted);
-  font-size: 14px;
+  color: var(--color-text-dim);
+  font-size: 0.6875rem;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
+/* campos con linea inferior: menos caja, mas formulario de papel */
 .form__input,
 .form__select,
 .form__textarea {
   width: 100%;
-  padding: 11px 14px;
+  padding: 10px 12px;
   background-color: var(--color-surface-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text);
   font-family: inherit;
-  font-size: 15px;
+  font-size: var(--step-0);
   transition: border-color var(--transition), background-color var(--transition);
 }
 
@@ -41,12 +44,22 @@
   color: var(--color-text-dim);
 }
 
+.form__input:hover,
+.form__select:hover,
+.form__textarea:hover {
+  border-color: var(--color-border-strong);
+}
+
 .form__input:focus,
 .form__select:focus,
 .form__textarea:focus {
   outline: none;
   border-color: var(--color-accent);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-3);
+}
+
+.form__input[type='number'] {
+  font-variant-numeric: tabular-nums;
 }
 
 .form__input_invalid {
@@ -54,18 +67,18 @@
 }
 
 .form__textarea {
-  min-height: 88px;
+  min-height: 84px;
   resize: vertical;
 }
 
 .form__select {
   appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
-    linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%);
-  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-text-dim) 50%),
+    linear-gradient(135deg, var(--color-text-dim) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
-  padding-right: 38px;
+  padding-right: 36px;
 }
 
 .form__select option {
@@ -74,13 +87,14 @@
 }
 
 .form__error {
-  color: var(--color-danger);
-  font-size: 13px;
+  min-height: 1em;
+  color: var(--color-danger-ink);
+  font-size: 0.75rem;
 }
 
 .form__hint {
   color: var(--color-text-dim);
-  font-size: 13px;
+  font-size: 0.75rem;
 }
 
 .form__input-group {
@@ -94,7 +108,7 @@
 
 .form__actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   margin-top: 4px;
 }
 

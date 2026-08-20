@@ -4,14 +4,21 @@
  * Cuando la imagen trae una version vertical (`mobileSrc`) el navegador elige
  * la mas adecuada segun el ancho de la pantalla.
  */
-function BrandImage({ image, className = '', ratio = '16 / 9', mobileRatio, loading = 'lazy' }) {
+function BrandImage({
+  image,
+  className = '',
+  ratio = '16 / 9',
+  mobileRatio,
+  loading = 'lazy',
+  fill = false,
+}) {
   const { src, mobileSrc, alt } = image;
 
   if (!src) {
     return (
       <div
         className={`brand-image brand-image_placeholder ${className}`.trim()}
-        style={{ aspectRatio: ratio }}
+        style={{ aspectRatio: fill ? undefined : ratio }}
         role="img"
         aria-label={alt}
       >
@@ -23,7 +30,7 @@ function BrandImage({ image, className = '', ratio = '16 / 9', mobileRatio, load
   const picture = (
     <img
       className={`brand-image ${className}`.trim()}
-      style={{ aspectRatio: mobileSrc ? undefined : ratio }}
+      style={{ aspectRatio: fill || mobileSrc ? undefined : ratio }}
       src={src}
       alt={alt}
       loading={loading}
@@ -36,11 +43,11 @@ function BrandImage({ image, className = '', ratio = '16 / 9', mobileRatio, load
   return (
     <picture
       className={`brand-image__picture ${className}`.trim()}
-      style={{ '--ratio-desktop': ratio, '--ratio-mobile': mobileRatio || ratio }}
+      style={fill ? undefined : { '--ratio-desktop': ratio, '--ratio-mobile': mobileRatio || ratio }}
     >
       <source media="(max-width: 700px)" srcSet={mobileSrc} />
       <img
-        className="brand-image brand-image_responsive"
+        className={`brand-image ${fill ? 'brand-image_fill' : 'brand-image_responsive'}`}
         src={src}
         alt={alt}
         loading={loading}

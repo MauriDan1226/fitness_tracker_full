@@ -66,12 +66,14 @@ function Profile() {
 
       <div className="profile">
         <div className="card profile__summary">
-          <div className="profile__avatar" aria-hidden="true">
-            {currentUser.name.charAt(0).toUpperCase()}
-          </div>
-          <div>
-            <h2 className="profile__name">{currentUser.name}</h2>
-            <p className="profile__email">{currentUser.email}</p>
+          <div className="profile__identity">
+            <span className="profile__avatar" aria-hidden="true">
+              {currentUser.name.charAt(0).toUpperCase()}
+            </span>
+            <div>
+              <h2 className="profile__name">{currentUser.name}</h2>
+              <p className="profile__email">{currentUser.email}</p>
+            </div>
           </div>
 
           <div className="profile__bmi">

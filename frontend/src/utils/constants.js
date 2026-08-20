@@ -1,16 +1,16 @@
 // Etiquetas visibles de cada tipo de ejercicio. Las claves coinciden con el enum del backend.
 // El valor MET sirve para estimar las calorias a partir del peso y la duracion.
 export const WORKOUT_TYPES = [
-  { value: 'running', label: 'Correr', icon: '🏃', met: 9.8 },
-  { value: 'weights', label: 'Pesas', icon: '🏋️', met: 5 },
-  { value: 'cycling', label: 'Ciclismo', icon: '🚴', met: 7.5 },
-  { value: 'swimming', label: 'Natacion', icon: '🏊', met: 8.3 },
-  { value: 'yoga', label: 'Yoga', icon: '🧘', met: 3 },
-  { value: 'walking', label: 'Caminar', icon: '🚶', met: 3.5 },
-  { value: 'hiit', label: 'HIIT', icon: '🔥', met: 8 },
-  { value: 'football', label: 'Futbol', icon: '⚽', met: 7 },
-  { value: 'dance', label: 'Baile', icon: '💃', met: 5.5 },
-  { value: 'other', label: 'Otro', icon: '⭐', met: 4 },
+  { value: 'running', label: 'Correr', icon: 'running', met: 9.8 },
+  { value: 'weights', label: 'Pesas', icon: 'weights', met: 5 },
+  { value: 'cycling', label: 'Ciclismo', icon: 'cycling', met: 7.5 },
+  { value: 'swimming', label: 'Natacion', icon: 'swimming', met: 8.3 },
+  { value: 'yoga', label: 'Yoga', icon: 'yoga', met: 3 },
+  { value: 'walking', label: 'Caminar', icon: 'walking', met: 3.5 },
+  { value: 'hiit', label: 'HIIT', icon: 'hiit', met: 8 },
+  { value: 'football', label: 'Futbol', icon: 'football', met: 7 },
+  { value: 'dance', label: 'Baile', icon: 'dance', met: 5.5 },
+  { value: 'other', label: 'Otro', icon: 'other', met: 4 },
 ];
 
 export const GOAL_TYPES = [

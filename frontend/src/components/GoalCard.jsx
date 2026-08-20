@@ -1,6 +1,7 @@
 import { findGoalType } from '../utils/constants';
 import { formatDate, formatNumber } from '../utils/format';
 import ProgressBar from './ProgressBar';
+import Icon from './Icon';
 
 function GoalCard({ goal, onEdit, onDelete }) {
   const type = findGoalType(goal.type);
@@ -14,7 +15,11 @@ function GoalCard({ goal, onEdit, onDelete }) {
           <h3 className="goal-card__title">{goal.title}</h3>
           <p className="goal-card__type">{type.label}</p>
         </div>
-        {isComplete && <span className="badge badge_accent">Conseguida</span>}
+        {isComplete && (
+          <span className="badge badge_accent">
+            <Icon name="check" size={13} /> Conseguida
+          </span>
+        )}
       </div>
 
       <div className="goal-card__values">
@@ -38,7 +43,7 @@ function GoalCard({ goal, onEdit, onDelete }) {
             aria-label={`Editar ${goal.title}`}
             title="Editar"
           >
-            ✎
+            <Icon name="edit" size={16} />
           </button>
           <button
             className="icon-button icon-button_danger"
@@ -47,7 +52,7 @@ function GoalCard({ goal, onEdit, onDelete }) {
             aria-label={`Eliminar ${goal.title}`}
             title="Eliminar"
           >
-            🗑
+            <Icon name="trash" size={16} />
           </button>
         </span>
       </div>

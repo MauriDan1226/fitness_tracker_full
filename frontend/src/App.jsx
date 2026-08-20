@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { DataProvider } from './contexts/DataContext';
 import Header from './components/Header';
@@ -14,13 +14,24 @@ import Profile from './pages/Profile';
 import Tips from './pages/Tips';
 import NotFound from './pages/NotFound';
 
+function Layout({ children }) {
+  const { pathname } = useLocation();
+  const isFlush = pathname === '/';
+
+  return (
+    <div className="page">
+      <Header />
+      <main className={`page__content ${isFlush ? 'page__content_flush' : ''}`}>{children}</main>
+      <Footer />
+    </div>
+  );
+}
+
 function App() {
   return (
     <AuthProvider>
       <DataProvider>
-        <div className="page">
-          <Header />
-          <main className="page__content">
+        <Layout>
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route
@@ -81,9 +92,7 @@ function App() {
               />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </main>
-          <Footer />
-        </div>
+        </Layout>
       </DataProvider>
     </AuthProvider>
   );

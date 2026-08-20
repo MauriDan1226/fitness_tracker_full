@@ -1,6 +1,7 @@
 import { useData } from '../contexts/DataContext';
 import TipCard from '../components/TipCard';
 import Loader from '../components/Loader';
+import Icon from '../components/Icon';
 import Message from '../components/Message';
 
 function Tips() {
@@ -22,7 +23,7 @@ function Tips() {
         <Loader text="Buscando consejos..." />
       ) : tips.length === 0 ? (
         <div className="empty-state">
-          <span className="empty-state__icon">💡</span>
+          <span className="empty-state__icon"><Icon name="bulb" size={28} /></span>
           <p className="empty-state__text">
             Completa tu perfil y registra alguna sesion para recibir consejos personalizados.
           </p>
