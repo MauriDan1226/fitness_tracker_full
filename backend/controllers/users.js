@@ -82,14 +82,21 @@ const updateProfile = async (req, res, next) => {
       throw new BadRequestError('Debes enviar al menos un campo para actualizar');
     }
 
-    const user = await User.findByIdAndUpdate(req.user._id, updates, {
+    const current = await User.findById(req.user._id);
+    if (!current) {
+      throw new NotFoundError('No se ha encontrado el usuario');
+    }
+
+    // solo se anade una entrada al historial cuando el peso cambia de verdad
+    const operation = { $set: updates };
+    if (updates.weight && updates.weight !== current.weight) {
+      operation.$push = { weightHistory: { value: updates.weight, date: new Date() } };
+    }
+
+    const user = await User.findByIdAndUpdate(req.user._id, operation, {
       new: true,
       runValidators: true,
     });
-
-    if (!user) {
-      throw new NotFoundError('No se ha encontrado el usuario');
-    }
 
     res.send(user);
   } catch (err) {

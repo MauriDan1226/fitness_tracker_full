@@ -56,6 +56,14 @@ const userSchema = new mongoose.Schema(
       },
       default: 'otro',
     },
+    // cada cambio de peso del perfil deja una entrada para dibujar la evolucion
+    weightHistory: [
+      {
+        value: { type: Number, required: true },
+        date: { type: Date, default: Date.now },
+        _id: false,
+      },
+    ],
     activityLevel: {
       type: String,
       enum: {
