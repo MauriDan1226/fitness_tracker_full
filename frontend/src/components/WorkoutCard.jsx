@@ -22,26 +22,28 @@ function WorkoutCard({ workout, onEdit, onDelete }) {
         {workout.notes && <p className="workout-card__notes">{workout.notes}</p>}
       </div>
 
-      <div className="workout-card__actions">
-        <button
-          className="icon-button"
-          type="button"
-          onClick={() => onEdit(workout)}
-          aria-label={`Editar ${type.label}`}
-          title="Editar"
-        >
-          ✎
-        </button>
-        <button
-          className="icon-button icon-button_danger"
-          type="button"
-          onClick={() => onDelete(workout)}
-          aria-label={`Eliminar ${type.label}`}
-          title="Eliminar"
-        >
-          🗑
-        </button>
-      </div>
+      {onEdit && onDelete && (
+        <div className="workout-card__actions">
+          <button
+            className="icon-button"
+            type="button"
+            onClick={() => onEdit(workout)}
+            aria-label={`Editar ${type.label}`}
+            title="Editar"
+          >
+            ✎
+          </button>
+          <button
+            className="icon-button icon-button_danger"
+            type="button"
+            onClick={() => onDelete(workout)}
+            aria-label={`Eliminar ${type.label}`}
+            title="Eliminar"
+          >
+            🗑
+          </button>
+        </div>
+      )}
     </article>
   );
 }

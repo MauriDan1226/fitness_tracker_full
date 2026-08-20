@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import Workouts from './pages/Workouts';
 import Goals from './pages/Goals';
 import Profile from './pages/Profile';
+import Tips from './pages/Tips';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -59,6 +60,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <Goals />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/tips"
+                element={
+                  <ProtectedRoute>
+                    <Tips />
                   </ProtectedRoute>
                 }
               />
