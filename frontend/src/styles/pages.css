@@ -23,7 +23,7 @@
   object-fit: cover;
   object-position: 72% 42%;
   /* la toma original es muy oscura: se levanta para que la escena se lea */
-  filter: brightness(1.55) contrast(1.06) saturate(0.95);
+  filter: brightness(1.12) contrast(1.04) saturate(0.95);
 }
 
 /* velo suave: la foto se ve, el texto conserva contraste */
