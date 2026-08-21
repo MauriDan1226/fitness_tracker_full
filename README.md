@@ -1,6 +1,4 @@
-# [TÍTULO_APP]
-
-<!-- TODO: reemplazar [TÍTULO_APP] por el nombre definitivo de la aplicación -->
+# IRONNOTE
 
 Aplicación web de seguimiento fitness. Permite registrar entrenamientos, definir metas
 personales, seguir el progreso con gráficas y recibir consejos de salud adaptados al perfil
@@ -162,7 +160,7 @@ Los textos e imágenes de marca están centralizados en
 
 | Constante | Estado | Uso |
 | --- | --- | --- |
-| `APP_NAME` | **pendiente** (`[TÍTULO_APP]`) | Nombre de la aplicación |
+| `APP_NAME` | listo | Nombre de la aplicación |
 | `APP_TAGLINE` | pendiente | Lema de la portada |
 | `LOGO` | listo | Símbolo vectorial de la cabecera y del favicon |
 | `HERO` | listo | Portada de la landing, con versión vertical para móvil |
@@ -186,5 +184,4 @@ define `mobileSrc`, y sigue pintando un marcador gris con el texto alternativo s
 `src` vuelve a quedar en `null`. Para sustituir cualquier imagen basta con dejar el archivo
 nuevo en `frontend/public/images/` y apuntar su `src` en `branding.js`.
 
-El título de la pestaña, en `frontend/index.html`, sigue marcado con `TODO` a la espera del
-nombre definitivo.
+El título de la pestaña vive en `frontend/index.html`.

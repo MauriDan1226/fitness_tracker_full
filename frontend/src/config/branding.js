@@ -1,13 +1,12 @@
 /*
  * Datos de marca de la aplicacion.
  *
- * TODO: reemplazar APP_NAME y APP_TAGLINE por los definitivos.
+ * TODO: reemplazar APP_TAGLINE por el lema definitivo.
  * Las imagenes viven en `frontend/public/images`. Si un `src` vuelve a ser null,
  * el componente BrandImage pinta un marcador gris con el texto alternativo.
  */
 
-// TODO: reemplazar por el nombre real de la aplicacion
-export const APP_NAME = '[TÍTULO_APP]';
+export const APP_NAME = 'IRONNOTE';
 
 // TODO: reemplazar por el lema real de la aplicacion
 export const APP_TAGLINE = 'Registra cada sesion, mide tu progreso y cumple tus metas.';
