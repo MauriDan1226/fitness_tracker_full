@@ -993,7 +993,7 @@
     flex-direction: column;
     justify-content: flex-start;
     min-height: auto;
-    padding: 22px 20px 0;
+    padding: 16px 20px 0;
   }
 
   .hero__inner {
@@ -1010,8 +1010,8 @@
 
   .hero__title {
     order: 2;
-    font-size: clamp(2.5rem, 11.5vw, 3.125rem);
-    line-height: 0.95;
+    font-size: clamp(2.25rem, 10.5vw, 2.75rem);
+    line-height: 0.94;
     letter-spacing: -0.04em;
     text-shadow: none;
   }
@@ -1024,15 +1024,15 @@
     position: relative;
     inset: auto;
     width: 100vw;
-    height: min(92vw, 360px);
-    margin: 20px -20px 0;
+    height: min(123vw, 480px);
+    margin: 14px -20px 0;
   }
 
   .hero__media .brand-image__picture,
   .hero__media .brand-image {
     height: 100%;
     object-fit: cover;
-    object-position: 52% 14%;
+    object-position: 50% 32%;
     filter: brightness(1.06) contrast(1.05) saturate(0.97);
   }
 
@@ -1049,9 +1049,9 @@
   .hero__lead {
     order: 4;
     max-width: 32ch;
-    margin-top: 18px;
+    margin-top: 14px;
     font-size: 0.9375rem;
-    line-height: 1.45;
+    line-height: 1.4;
     opacity: 0.8;
   }
 
@@ -1059,7 +1059,7 @@
     order: 5;
     flex-direction: column;
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 14px;
   }
 
   .hero__actions .button {
